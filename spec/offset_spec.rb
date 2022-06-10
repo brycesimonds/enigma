@@ -10,4 +10,8 @@ RSpec.describe Offset do
   it 'exists' do
     expect(@offset_1).to be_a(Offset)
   end
+
+  it 'can retrieve the current date in DDMMYYYY format' do
+    expect(@offset_1.date).to eq("06102022")
+  end
 end
