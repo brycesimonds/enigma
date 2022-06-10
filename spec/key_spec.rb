@@ -19,10 +19,11 @@ RSpec.describe Key do
     expect(@key.random_num_string.length).to eq(5)
   end
 
-  it 'has a random 5 digit number' do
+  it 'has a random 5 digit number if no argument passed in' do
     expect(@key.number).to be_a(String)
     expect(@key.number.length).to eq(5)
   end
+
   it 'can accept a string of numbers' do
     @key_1 = Key.new("96321")
     @key_2 = Key.new("02876")
@@ -30,5 +31,16 @@ RSpec.describe Key do
     expect(@key_1.number.length).to eq(5)
     expect(@key_2.number).to be_a(String)
     expect(@key_2.number.length).to eq(5)
+  end
+
+  it 'delegates the A-D keys accurately' do
+    expect(@key.keys[key_a].length).to eq(2)
+    expect(@key.keys[key_a]).to eq(number[0,1])
+    expect(@key.keys[key_b].length).to eq(2)
+    expect(@key.keys[key_b]).to eq(number[1,2])
+    expect(@key.keys[key_c].length).to eq(2)
+    expect(@key.keys[key_c]).to eq(number[2,3])
+    expect(@key.keys[key_d].length).to eq(2)
+    expect(@key.keys[key_d]).to eq(number[3,4])
   end
 end
