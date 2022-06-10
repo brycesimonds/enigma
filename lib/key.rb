@@ -3,8 +3,8 @@ class Key
   def initialize(number = random_num_string)
     @number = number
     @keys = {
-      key_a: number[0..1],
-      key_b: number[1..2],
+      key_a: number[0..1], #these will produce sections of the strings,
+      key_b: number[1..2], #like "02", or "45"
       key_c: number[2..3],
       key_d: number[3..4]
     }
