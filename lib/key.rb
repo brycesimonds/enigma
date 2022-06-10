@@ -1,6 +1,6 @@
 class Key
   attr_reader :number
-  def initialize
+  def initialize(number = random_num_string)
     @number = number
   end
 
