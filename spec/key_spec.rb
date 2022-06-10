@@ -18,4 +18,9 @@ RSpec.describe Key do
     expect(@key.random_num_string).to be_a(String)
     expect(@key.random_num_string.length).to eq(5)
   end
+
+  it 'has a random 5 digit number' do
+    expect(@key.number).to be_a(String)
+    expect(@key.number.length).to eq(5)
+  end
 end
