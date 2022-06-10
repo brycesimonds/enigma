@@ -6,4 +6,5 @@ RSpec.describe Key do
   end
   it 'exists' do
     expect(@key).to be_a(Key)
-  end 
+  end
+end 
