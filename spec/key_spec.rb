@@ -23,4 +23,12 @@ RSpec.describe Key do
     expect(@key.number).to be_a(String)
     expect(@key.number.length).to eq(5)
   end
+  it 'can accept a string of numbers' do
+    @key_1 = Key.new("96321")
+    @key_2 = Key.new("02876")
+    expect(@key_1.number).to be_a(String)
+    expect(@key_1.number.length).to eq(5)
+    expect(@key_2.number).to be_a(String)
+    expect(@key_2.number.length).to eq(5)
+  end
 end
