@@ -33,14 +33,15 @@ RSpec.describe Key do
     expect(@key_2.number.length).to eq(5)
   end
 
-  it 'delegates the A-D keys accurately' do
-    expect(@key.keys[key_a].length).to eq(2)
-    expect(@key.keys[key_a]).to eq(number[0,1])
-    expect(@key.keys[key_b].length).to eq(2)
-    expect(@key.keys[key_b]).to eq(number[1,2])
-    expect(@key.keys[key_c].length).to eq(2)
-    expect(@key.keys[key_c]).to eq(number[2,3])
-    expect(@key.keys[key_d].length).to eq(2)
-    expect(@key.keys[key_d]).to eq(number[3,4])
+  it 'delegates the A-D keys accurately with no argument given' do
+    expect(@key.keys[:key_a].length).to eq(2)
+    expect(@key.keys[:key_a]).to eq(@key.number[0..1])
+    require 'pry'; binding.pry
+    expect(@key.keys[:key_b].length).to eq(2)
+    expect(@key.keys[:key_b]).to eq(@key.number[1..2])
+    expect(@key.keys[:key_c].length).to eq(2)
+    expect(@key.keys[:key_c]).to eq(@key.number[2..3])
+    expect(@key.keys[:key_d].length).to eq(2)
+    expect(@key.keys[:key_d]).to eq(@key.number[3..4])
   end
 end
