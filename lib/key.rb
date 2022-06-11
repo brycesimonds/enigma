@@ -1,8 +1,8 @@
 class Key
-  attr_reader :number, :keys
+  attr_reader :number, :the_keys
   def initialize(number = random_num_string)
     @number = number
-    @keys = {
+    @the_keys = {
       key_a: number[0..1], #these will produce sections of the strings,
       key_b: number[1..2], #like "02", or "45"
       key_c: number[2..3],
