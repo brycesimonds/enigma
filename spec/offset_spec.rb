@@ -19,4 +19,10 @@ RSpec.describe Offset do
     expect(@offset_2.date).to eq("040895")
     expect(@offset_3.date).to eq("113060")
   end
+
+  it 'can square the date' do
+    expect(@offset_1.square_date).to eq((Time.now.strftime("%m/%d/%Y").delete('/').to_i) ** 2)
+    expect(@offset_2.square_date).to eq(1672401025)
+    expect(@offset_3.square_date).to eq(12782563600)
+  end
 end
