@@ -1,6 +1,7 @@
 require "date"
 class Offset
   attr_reader :date, :the_squared_date, :the_offsets
+  
   def initialize(date = Time.now.strftime("%m/%d/%y").delete('/'))
     @date = date #string like "061122"
     @the_squared_date = square_date #integer
