@@ -33,4 +33,21 @@ RSpec.describe Offset do
     expect(@offset_2.last_four_nums_of_square_date).to eq("1025")
     expect(@offset_3.last_four_nums_of_square_date).to eq("3600")
   end
+
+  it 'has offset_a, b, c and d' do
+    expect(@offset_1.offset_a).to eq(@offset_1.last_four_nums_of_square_date[0])
+    expect(@offset_1.offset_b).to eq(@offset_1.last_four_nums_of_square_date[1])
+    expect(@offset_1.offset_c).to eq(@offset_1.last_four_nums_of_square_date[2])
+    expect(@offset_1.offset_d).to eq(@offset_1.last_four_nums_of_square_date[3])
+
+    expect(@offset_2.offset_a).to eq("1")
+    expect(@offset_2.offset_b).to eq("0")
+    expect(@offset_2.offset_c).to eq("2")
+    expect(@offset_2.offset_d).to eq("5")
+
+    expect(@offset_3.offset_a).to eq("3")
+    expect(@offset_3.offset_b).to eq("6")
+    expect(@offset_3.offset_c).to eq("0")
+    expect(@offset_3.offset_d).to eq("0")
+  end
 end
