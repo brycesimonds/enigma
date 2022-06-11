@@ -14,4 +14,9 @@ RSpec.describe Offset do
   it 'can retrieve the current date in DDMMYYYY format' do
     expect(@offset_1.date).to eq(Time.now.strftime("%m/%d/%Y").delete('/'))
   end
+
+  it 'can accept a date that is given' do
+    expect(@offset_2.date).to eq("040895")
+    expect(@offset_3.date).to eq("113060")
+  end
 end
