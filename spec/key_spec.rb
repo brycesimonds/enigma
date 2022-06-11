@@ -34,24 +34,24 @@ RSpec.describe Key do
   end
 
   it 'delegates the A-D keys accurately with no argument given' do
-    expect(@key_1.keys[:key_a].length).to eq(2)
-    expect(@key_1.keys[:key_a]).to eq(@key_1.number[0..1])
-    expect(@key_1.keys[:key_b].length).to eq(2)
-    expect(@key_1.keys[:key_b]).to eq(@key_1.number[1..2])
-    expect(@key_1.keys[:key_c].length).to eq(2)
-    expect(@key_1.keys[:key_c]).to eq(@key_1.number[2..3])
-    expect(@key_1.keys[:key_d].length).to eq(2)
-    expect(@key_1.keys[:key_d]).to eq(@key_1.number[3..4])
+    expect(@key_1.the_keys[:key_a].length).to eq(2)
+    expect(@key_1.the_keys[:key_a]).to eq(@key_1.number[0..1])
+    expect(@key_1.the_keys[:key_b].length).to eq(2)
+    expect(@key_1.the_keys[:key_b]).to eq(@key_1.number[1..2])
+    expect(@key_1.the_keys[:key_c].length).to eq(2)
+    expect(@key_1.the_keys[:key_c]).to eq(@key_1.number[2..3])
+    expect(@key_1.the_keys[:key_d].length).to eq(2)
+    expect(@key_1.the_keys[:key_d]).to eq(@key_1.number[3..4])
   end
 
   it 'delegates the A-D keys accurately with an arugment starting with 0' do
-    expect(@key_3.keys[:key_a].length).to eq(2)
-    expect(@key_3.keys[:key_a]).to eq(@key_3.number[0..1])
-    expect(@key_3.keys[:key_b].length).to eq(2)
-    expect(@key_3.keys[:key_b]).to eq(@key_3.number[1..2])
-    expect(@key_3.keys[:key_c].length).to eq(2)
-    expect(@key_3.keys[:key_c]).to eq(@key_3.number[2..3])
-    expect(@key_3.keys[:key_d].length).to eq(2)
-    expect(@key_3.keys[:key_d]).to eq(@key_3.number[3..4])
+    expect(@key_3.the_keys[:key_a].length).to eq(2)
+    expect(@key_3.the_keys[:key_a]).to eq(@key_3.number[0..1])
+    expect(@key_3.the_keys[:key_b].length).to eq(2)
+    expect(@key_3.the_keys[:key_b]).to eq(@key_3.number[1..2])
+    expect(@key_3.the_keys[:key_c].length).to eq(2)
+    expect(@key_3.the_keys[:key_c]).to eq(@key_3.number[2..3])
+    expect(@key_3.the_keys[:key_d].length).to eq(2)
+    expect(@key_3.the_keys[:key_d]).to eq(@key_3.number[3..4])
   end
 end
