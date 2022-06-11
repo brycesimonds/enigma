@@ -9,6 +9,6 @@ RSpec.describe Enigma do
   end
 
   it 'exists' do
-    expect(@enigma).to be_a(Enigma)
+    expect(@enigma_1).to be_a(Enigma)
   end
-end 
+end
