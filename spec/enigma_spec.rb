@@ -11,4 +11,12 @@ RSpec.describe Enigma do
   it 'exists' do
     expect(@enigma_1).to be_a(Enigma)
   end
+
+  it 'can encrypt a message given 3 arguments' do
+    expect(@enigma_1.encrypt("hello world", "02715", "040895")).to eq({
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+      })
+  end
 end
