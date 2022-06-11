@@ -29,7 +29,7 @@ RSpec.describe Offset do
   end
 
   it 'can retrieve last 4 digits of the_squared_date' do
-    expect(@offset_1.last_four_nums_of_square_date).to eq(offset_1.the_squared_date[-4..-1])
+    expect(@offset_1.last_four_nums_of_square_date).to eq(@offset_1.the_squared_date.to_s[-4..-1])
     expect(@offset_2.last_four_nums_of_square_date).to eq("1025")
     expect(@offset_3.last_four_nums_of_square_date).to eq("3600")
   end
