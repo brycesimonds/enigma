@@ -22,15 +22,15 @@ RSpec.describe Offset do
     expect(@offset_3.date).to eq("113060")
   end
 
-  it 'can has a squared date' do
+  it 'can have a squared date' do
     expect(@offset_1.the_squared_date).to eq(@date_without_argument.to_i ** 2)
     expect(@offset_2.the_squared_date).to eq(1672401025)
     expect(@offset_3.the_squared_date).to eq(12782563600)
   end
 
-  # it 'can retrieve last 4 digits of square_date' do
-  #   expect(@offset_1.last_four_nums_of_square_date).to eq(@date_without_argument[-4..-1])
-  #   expect(@offset_2.last_four_nums_of_square_date).to eq("1025")
-  #   expect(@offset_3.last_four_nums_of_square_date).to eq("3600")
-  # end
+  it 'can retrieve last 4 digits of the_squared_date' do
+    expect(@offset_1.last_four_nums_of_square_date).to eq(offset_1.the_squared_date[-4..-1])
+    expect(@offset_2.last_four_nums_of_square_date).to eq("1025")
+    expect(@offset_3.last_four_nums_of_square_date).to eq("3600")
+  end
 end
