@@ -2,6 +2,8 @@ require './lib/offset'
 
 RSpec.describe Offset do
   before :each do
+    @date_without_argument = Time.now.strftime("%m/%d/%y").delete('/')
+
     @offset_1 = Offset.new
     @offset_2 = Offset.new("040895")
     @offset_3 = Offset.new("113060")
@@ -12,7 +14,7 @@ RSpec.describe Offset do
   end
 
   it 'can retrieve the current date in DDMMYY format' do
-    expect(@offset_1.date).to eq(Time.now.strftime("%m/%d/%y").delete('/'))
+    expect(@offset_1.date).to eq(@date_without_argument)
   end
 
   it 'can accept a date that is given' do
@@ -21,7 +23,7 @@ RSpec.describe Offset do
   end
 
   it 'can square the date' do
-    expect(@offset_1.square_date).to eq((Time.now.strftime("%m/%d/%y").delete('/').to_i) ** 2)
+    expect(@offset_1.square_date).to eq(@date_without_argument.to_i ** 2)
     expect(@offset_2.square_date).to eq(1672401025)
     expect(@offset_3.square_date).to eq(12782563600)
   end
