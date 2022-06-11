@@ -2,12 +2,16 @@ require "date"
 class Offset
   attr_reader :date, :the_squared_date
   def initialize(date = Time.now.strftime("%m/%d/%y").delete('/'))
-    @date = date
-    @the_squared_date = square_date
+    @date = date #string
+    @the_squared_date = square_date #integer
   end
 
   def square_date
     return date[1..5].to_i ** 2 if date[0] == "0"
     return date.to_i ** 2 if date[0] != "0"
+  end
+
+  def last_four_nums_of_square_date
+    @the_squared_date.to_s[-4..-1]
   end
 end
