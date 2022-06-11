@@ -12,6 +12,6 @@ RSpec.describe Offset do
   end
 
   it 'can retrieve the current date in DDMMYYYY format' do
-    expect(@offset_1.date).to eq("06102022")
+    expect(@offset_1.date).to eq(Time.now.strftime("%m/%d/%Y").delete('/'))
   end
 end
