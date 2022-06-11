@@ -16,7 +16,7 @@ RSpec.describe Enigma do
     expect(@enigma_1.todays_date_ddmmyy).to eq(Time.now.strftime("%m/%d/%y").delete('/'))
   end
 
-  xit 'can encrypt a message given 3 arguments' do
+  it 'can encrypt a message given 3 arguments' do
     expect(@enigma_1.encrypt("hello world", "02715", "040895")).to eq({
       encryption: "keder ohulw",
       key: "02715",
