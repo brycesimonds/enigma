@@ -30,10 +30,14 @@ class Enigma
 
     encrypt_word = []
     string.downcase.split("").each do |character|
-      starting_point = array_27_chars.rotate(array_27_chars.find_index(character))
-      encrypt_word << starting_point.rotate(array_of_shifts[shift_count])[0]
-      shift_count += 1
-    shift_count = 0 if shift_count == 4
+      if array_27_chars.include?(character) == false
+        encrypt_word << character
+      elsif
+        starting_point = array_27_chars.rotate(array_27_chars.find_index(character))
+        encrypt_word << starting_point.rotate(array_of_shifts[shift_count])[0]
+        shift_count += 1
+        shift_count = 0 if shift_count == 4
+      end
     end
     encrypt_word.join("")
   end
