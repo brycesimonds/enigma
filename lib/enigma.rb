@@ -26,17 +26,14 @@ class Enigma
     end
     shift = Shift.new(key, Offset.new(date))
     array_of_shifts = [shift.the_shifts[:shift_a], shift.the_shifts[:shift_b], shift.the_shifts[:shift_c], shift.the_shifts[:shift_d]]
-    character_count = 0
     shift_count = 0
 
     encrypt_word = []
-    string.split("").each do |character|
-      starting_index_position = array_27_chars.find_index(character)
-      starting_point = array_27_chars.rotate(starting_index_position)
-      character = starting_point.rotate(array_of_shifts[shift_count])[0]
-      encrypt_word << character
+    string.downcase.split("").each do |character|
+      starting_point = array_27_chars.rotate(array_27_chars.find_index(character))
+      encrypt_word << starting_point.rotate(array_of_shifts[shift_count])[0]
       shift_count += 1
-    shift_count = 0 if shift_count == 4 #is stopping the method when shift count is 4
+    shift_count = 0 if shift_count == 4
     end
     encrypt_word.join("")
   end
