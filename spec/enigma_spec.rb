@@ -61,4 +61,12 @@ RSpec.describe Enigma do
   it 'can return array of 27 characters a-z and space' do
     expect(@enigma_1.array_27_chars).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
   end
+
+  it 'decrypt a message given a key and date' do
+    expect(@enigma_1.decrypt("keder ohulw", "02715", "040895")).to eq({
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+      })
+  end
 end
