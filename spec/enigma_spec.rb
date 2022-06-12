@@ -1,4 +1,7 @@
 require './lib/enigma'
+require './lib/offset'
+require './lib/key'
+require './lib/shift'
 require 'date'
 
 RSpec.describe Enigma do
@@ -6,6 +9,14 @@ RSpec.describe Enigma do
     @date_without_argument = Time.now.strftime("%m/%d/%y").delete('/') #such as "061122"
 
     @enigma_1 = Enigma.new
+    @key_1 = Key.new
+    @offset_1 = Offset.new
+    @shift_1 = Shift.new(@key_1, @offset_1)
+    
+    @enigma_2 = Enigma.new
+    @key_2 = Key.new("96321")
+    @offset_2 = Offset.new("040895")
+    @shift_2 = Shift.new(@key_2, @offset_2)
   end
 
   it 'exists' do
