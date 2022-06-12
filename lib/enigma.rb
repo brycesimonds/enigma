@@ -15,21 +15,26 @@ class Enigma
     return @encrypted
   end
 
-  def encrypt_string(string, key = Key.new.number, date = todays_date_ddmmyy)
+  def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
+    if key.class == String
+      original_key_string = key
+      key = Key.new(original_key_string)
+    end
     array_27_chars = ("a".."z").to_a << " "
     shift = Shift.new(key, Offset.new(date))
     array_of_shifts = [shift.the_shifts[:shift_a], shift.the_shifts[:shift_b], shift.the_shifts[:shift_c], shift.the_shifts[:shift_d]]
     character_count = 0
     shift_count = 0
 
-    encrypt_word = string.map do |letter|
-      string[character_count] = array_27_chars.rotate(array_of_shifts[shift_count])[0]
-      character_count += 1
+    encrypt_word = []
+    string.split("").each do |character|
+      starting_index_position = array_27_chars.find_index(character)
+      starting_point = array_27_chars.rotate(starting_index_position)
+      character = starting_point.rotate(array_of_shifts[shift_count])[0]
+      encrypt_word << character
       shift_count += 1
-
-    return character_count = 0 if character_count == string.length
-    return shift_count = 0 if shift_count == 4
+    shift_count = 0 if shift_count == 4 #is stopping the method when shift count is 4
     end
-    encrypt_word
+    encrypt_word.join("")
   end
 end
