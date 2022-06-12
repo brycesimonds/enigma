@@ -37,12 +37,4 @@ RSpec.describe Enigma do
   it 'can return array of 27 characters a-z and space' do
     expect(@enigma_1.array_27_chars).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
   end
-
-  it 'can return array of the final shifts a-d' do
-    expect(@enigma_1.array_of_shifts("02715", "040895")).to eq([3, 27, 73, 20])
-  end
-
-  it 'can take a string key and turn it into a key instance' do
-    expect(@enigma_1.string_to_key_instance("02715")).to be_a(Key)
-  end
 end
