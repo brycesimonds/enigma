@@ -43,7 +43,7 @@ class Enigma
     encrypt_word.join("")
   end
 
-  def decrypt(string, key, date = todays_date_ddmmyy)
+  def decrypt(string, key = Key.new, date = todays_date_ddmmyy)
     @decrypted[:decryption] = decrypt_string(string, key, date)
     @decrypted[:key] = key
     @decrypted[:date] = date
