@@ -66,7 +66,6 @@ class Enigma
         decrypted_word << character
       elsif
         starting_point = array_27_chars.rotate(array_27_chars.find_index(character))
-        # require 'pry'; binding.pry
         decrypted_word << starting_point.rotate(-(array_of_shifts[shift_count]))[0]
         shift_count += 1
         shift_count = 0 if shift_count == 4

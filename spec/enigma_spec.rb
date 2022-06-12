@@ -36,7 +36,7 @@ RSpec.describe Enigma do
 
   it 'can encrypt a message given 1 argument of String' do
     encrypted = @enigma_1.encrypt("hello world")
-    
+
     expect(encrypted).to be_a(Hash)
     expect(encrypted[:encryption].length).to eq(11)
     expect(encrypted[:key].length).to eq(5)
@@ -86,5 +86,9 @@ RSpec.describe Enigma do
       key: "02715",
       date: @date_without_argument
       })
+    end
+
+  it 'can pass characters into decrypted word array' do
+    expect(@enigma_1.decrypt_string("keder ohulw!", "02715", "040895")).to eq("hello world!")
   end
 end
