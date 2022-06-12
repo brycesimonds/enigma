@@ -15,6 +15,10 @@ class Enigma
     return @encrypted
   end
 
+  def array_27_chars
+    ("a".."z").to_a << " "
+  end
+  
   def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
     if key.class == String
       original_key_string = key
