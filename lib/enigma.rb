@@ -19,20 +19,6 @@ class Enigma
     ("a".."z").to_a << " "
   end
 
-  def string_to_key_instance(key)
-    original_key_string = key
-    key = Key.new(original_key_string)
-  end
-
-  def array_of_shifts(key, date)
-    if key.class == String
-      original_key_string = key
-      key = Key.new(original_key_string)
-    end
-    shift = Shift.new(key, Offset.new(date))
-        array_of_shifts = [shift.the_shifts[:shift_a], shift.the_shifts[:shift_b], shift.the_shifts[:shift_c], shift.the_shifts[:shift_d]]
-  end
-
   def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
     if key.class == String
       original_key_string = key
