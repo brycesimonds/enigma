@@ -31,5 +31,6 @@ RSpec.describe Enigma do
 
   it 'can encrypt a message given 2 arguments' do
     expect(@enigma_2.encrypt("hello world", "02715")).to be_a(Hash)
+    expect(@enigma_2.encrypt("hello world", "02715")[:encryption].length).to eq(11)
   end
 end
