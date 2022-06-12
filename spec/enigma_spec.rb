@@ -34,6 +34,15 @@ RSpec.describe Enigma do
     expect(@enigma_2.encrypt("hello world", "02715")[:encryption].length).to eq(11)
   end
 
+  it 'can encrypt a message given 1 argument of String' do
+    encrypted = @enigma_1.encrypt("hello world")
+    
+    expect(encrypted).to be_a(Hash)
+    expect(encrypted[:encryption].length).to eq(11)
+    expect(encrypted[:key].length).to eq(5)
+    expect(encrypted[:date].length).to eq(6)
+  end
+
   it 'can encrypt a message given random case charcaters' do
     expect(@enigma_1.encrypt("hELlo wOrLD", "02715", "040895")).to eq({
       encryption: "keder ohulw",
@@ -60,5 +69,22 @@ RSpec.describe Enigma do
 
   it 'can return array of 27 characters a-z and space' do
     expect(@enigma_1.array_27_chars).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
+  end
+
+  it 'decrypt a message given a key and date' do
+    expect(@enigma_1.decrypt("keder ohulw", "02715", "040895")).to eq({
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+      })
+  end
+
+  it 'decrypt a message given a key' do
+    encrypted = @enigma_1.encrypt("hello world", "02715")
+    expect(@enigma_1.decrypt(encrypted[:encryption], "02715")).to eq({
+      decryption: "hello world",
+      key: "02715",
+      date: @date_without_argument
+      })
   end
 end
