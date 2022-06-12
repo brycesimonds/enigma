@@ -9,7 +9,7 @@ class Enigma
     Time.now.strftime("%m/%d/%y").delete('/')
   end
 
-  def encrypt(string, key = Kew.new.number, date = todays_date_ddmmyy)
+  def encrypt(string, key = Key.new.number, date = todays_date_ddmmyy)
     @encrypted[:encryption] = encrypt_string(string, key, date)
     @encrypted[:key] = key
     @encrypted[:date] = date
