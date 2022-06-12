@@ -35,8 +35,11 @@ RSpec.describe Enigma do
   end
 
   it 'can encrypt a message given random case charcaters' do
-    expect(@enigma_2.encrypt("hElLo wORlD", "02715")).to be_a(Hash)
-    expect(@enigma_2.encrypt("hello world", "02715")[:encryption].length).to eq(11)
+    expect(@enigma_1.encrypt("hELlo wOrLD", "02715", "040895")).to eq({
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+      })
   end
 
   it 'can return array of 27 characters a-z and space' do
