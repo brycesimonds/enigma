@@ -62,11 +62,20 @@ RSpec.describe Enigma do
     expect(@enigma_1.array_27_chars).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
   end
 
-  it 'decrypt a message given a key and date' do
+  xit 'decrypt a message given a key and date' do
     expect(@enigma_1.decrypt("keder ohulw", "02715", "040895")).to eq({
       decryption: "hello world",
       key: "02715",
       date: "040895"
+      })
+  end
+
+  it 'decrypt a message given a key' do
+    encrypted = @enigma_1.encrypt("hello world", "02715")
+    expect(@enigma_1.decrypt(encrypted[:encryption], "02715")).to eq({
+      decryption: "hello world",
+      key: "02715",
+      date: @date_without_argument
       })
   end
 end
