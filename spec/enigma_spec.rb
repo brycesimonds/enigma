@@ -98,4 +98,8 @@ RSpec.describe Enigma do
 
     expect(@enigma_1.array_of_shifts(shift)).to eq([3, 27, 73, 20])
   end
+
+  it 'can create an array where the first character matches the passed in character' do
+    expect(@enigma_1.array_specific_char_front("c")).to eq(["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b"])
+  end
 end
