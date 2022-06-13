@@ -28,6 +28,11 @@ class Enigma
     array_27_chars.rotate(array_27_chars.find_index(character))
   end
 
+  def encrypted_letter(character, shift, shift_count)
+    new_leading_char_array = array_specific_char_front(character)
+    new_leading_char_array.rotate((array_of_shifts(shift))[shift_count])[0]
+  end
+
   def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
     if key.class == String
       original_key_string = key
@@ -38,11 +43,11 @@ class Enigma
     shift_count = 0
 
     encrypt_word = []
-    string.downcase.split("").each do |character|
-      if array_27_chars.include?(character) == false
-        encrypt_word << character
+    string.downcase.split("").each do |char|
+      if array_27_chars.include?(char) == false
+        encrypt_word << char
       elsif
-        encrypt_word << array_specific_char_front(character).rotate(array_of_shifts[shift_count])[0]
+        encrypt_word << encrypted_letter(char, shift, shift_count)
         shift_count += 1
         shift_count = 0 if shift_count == 4
       end
