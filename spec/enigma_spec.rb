@@ -91,4 +91,11 @@ RSpec.describe Enigma do
   it 'can pass characters into decrypted word array' do
     expect(@enigma_1.decrypt_string("keder ohulw!", "02715", "040895")).to eq("hello world!")
   end
+
+  it 'can produce an array of shifts' do
+    string = "hello world"
+    shift = Shift.new(Key.new("02715"), Offset.new("040895"))
+
+    expect(@enigma_1.array_of_shifts(shift)).to eq([3, 27, 73, 20])
+  end
 end
