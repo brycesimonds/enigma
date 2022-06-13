@@ -102,4 +102,12 @@ RSpec.describe Enigma do
   it 'can create an array where the first character matches the passed in character' do
     expect(@enigma_1.array_specific_char_front("c")).to eq(["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b"])
   end
+
+  it 'can produce the encrypted letter' do
+    date = "040895"
+    key = Key.new("02715")
+    offset = Offset.new(date)
+    shift = Shift.new(key, offset)
+    expect(@enigma_1.encrypted_letter("h", shift, 0)).to eq("k")
+  end
 end
