@@ -24,6 +24,10 @@ class Enigma
     [shift.the_shifts[:shift_a], shift.the_shifts[:shift_b], shift.the_shifts[:shift_c], shift.the_shifts[:shift_d]]
   end
 
+  def array_specific_char_front(character)
+    array_27_chars.rotate(array_27_chars.find_index(character))
+  end
+
   def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
     if key.class == String
       original_key_string = key
@@ -38,8 +42,7 @@ class Enigma
       if array_27_chars.include?(character) == false
         encrypt_word << character
       elsif
-        starting_point = array_27_chars.rotate(array_27_chars.find_index(character))
-        encrypt_word << starting_point.rotate(array_of_shifts[shift_count])[0]
+        encrypt_word << array_specific_char_front(character).rotate(array_of_shifts[shift_count])[0]
         shift_count += 1
         shift_count = 0 if shift_count == 4
       end
