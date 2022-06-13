@@ -1,1 +1,41 @@
-# enigma
+# Enigma
+### _Mod 1's Final Project_
+
+This project was a blast! The whole encrypting/decrypting process was fun to figure out, along with having free reign to figure out how to go about it all on our own!
+
+ Below I will break down my self assessment for this project ✨
+
+## Functionality => "Meets Expectations (3.0)"
+
+- Enigma Class with encrypt and decrypt methods successfully implemented
+- Encrypt/decrypt command line interfaces successfully implemented
+- I did not attempt the Cracking method, so a 4.0 is not warranted. Because my methods and CLI work I am not below expectations. So a 3.0 it is!
+
+## Object Oriented Programming => "Meets Expectations (3.0)"
+
+- Project is broken into logical components that are appropriately encapsulated.
+- Encrypt/decrypt command line interfaces successfully implemented
+- No classes are unreasonably small or large, or contain knowledge/information/behavior that they shouldn’t know about
+- Student can articulate the single responsibilities of the various components.
+- Inheritance/modules were not used, so a 4.0 is not awarded. All classes are appropriate in responsibility, length and knowledge, so I am not below expectations. So a 3.0 it is!
+
+## Ruby Conventions and Mechanics => "Above Expectations (4.0)"
+
+- Classes, methods, and variables are well named so that they clearly communicate their purpose.
+- Code is all properly indented and syntax is consistent.
+- No methods are longer than 10 lines long
+- Most enumerables/data structures chosen are the most efficient tool for a given job, and students can speak as to why those enumerables/data structures were chosen.
+- My code is DRY and made for developer empathy. It goes beyond the meet expectations, so 4.0 it is!
+
+## Test Driven Development => "Meets Expectations/Above Expectations (3.5)"
+
+- Test coverage metrics show 100% coverage.
+- Every method is tested at both the unit and integration level, and completely verify expected behavior
+- Obvious edge cases are addressed
+- git history demonstrates students are writing tests before implementation code.
+- I did not use mocks/stubs, but did achieve 100% test coverage which is a requirement of an Above Expectations marking, so awarded a 3.5 halfway between Meets Expectations and Above expectations!
+
+## **Final Grade for Enigma => 3.375.ceil(2)**
+
+##### The end, you made it! You've earned a pleasant listening experience. Please click the music note below to be transported to said listening experience:
+[![Pleasnt-ness](data:image/jpeg;base64,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)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
