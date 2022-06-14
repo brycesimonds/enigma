@@ -116,6 +116,6 @@ RSpec.describe Enigma do
     key = Key.new("02715")
     offset = Offset.new(date)
     shift = Shift.new(key, offset)
-    expect(@enigma_1.some_method("hello world", shift)).to eq("keder ohulw")
+    expect(@enigma_1.join_letters_together("hello world", shift)).to eq("keder ohulw")
   end
 end
