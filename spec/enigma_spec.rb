@@ -110,4 +110,12 @@ RSpec.describe Enigma do
     shift = Shift.new(key, offset)
     expect(@enigma_1.encrypted_letter("h", shift, 0)).to eq("k")
   end
+
+  it 'can encrypt the word' do
+    date = "040895"
+    key = Key.new("02715")
+    offset = Offset.new(date)
+    shift = Shift.new(key, offset)
+    expect(@enigma_1.some_method("hello world", shift)).to eq("keder ohulw")
+  end
 end

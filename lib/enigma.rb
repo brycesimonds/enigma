@@ -33,6 +33,20 @@ class Enigma
     new_leading_char_array.rotate((array_of_shifts(shift))[shift_count])[0]
   end
 
+  def some_method(string, shift)
+    shift_count = 0
+    encrypt_word = []
+    string.downcase.split("").each do |char|
+      encrypt_word << char if array_27_chars.include?(char) == false
+      if array_27_chars.include?(char) == true
+        encrypt_word << encrypted_letter(char, shift, shift_count)
+        shift_count += 1
+        shift_count = 0 if shift_count == 4
+      end
+    end
+    encrypt_word.join("")
+  end
+
   def encrypt_string(string, key = Key.new, date = todays_date_ddmmyy)
     if key.class == String
       original_key_string = key
@@ -40,19 +54,7 @@ class Enigma
     end
     shift = Shift.new(key, Offset.new(date))
     array_of_shifts = array_of_shifts(shift)
-    shift_count = 0
-
-    encrypt_word = []
-    string.downcase.split("").each do |char|
-      if array_27_chars.include?(char) == false
-        encrypt_word << char
-      elsif
-        encrypt_word << encrypted_letter(char, shift, shift_count)
-        shift_count += 1
-        shift_count = 0 if shift_count == 4
-      end
-    end
-    encrypt_word.join("")
+    some_method(string, shift)
   end
 
   def decrypt(string, key = Key.new, date = todays_date_ddmmyy)
