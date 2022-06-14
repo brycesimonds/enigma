@@ -91,4 +91,31 @@ RSpec.describe Enigma do
   it 'can pass characters into decrypted word array' do
     expect(@enigma_1.decrypt_string("keder ohulw!", "02715", "040895")).to eq("hello world!")
   end
+
+  it 'can produce an array of shifts' do
+    string = "hello world"
+    shift = Shift.new(Key.new("02715"), Offset.new("040895"))
+
+    expect(@enigma_1.array_of_shifts(shift)).to eq([3, 27, 73, 20])
+  end
+
+  it 'can create an array where the first character matches the passed in character' do
+    expect(@enigma_1.array_specific_char_front("c")).to eq(["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b"])
+  end
+
+  it 'can produce the encrypted letter' do
+    date = "040895"
+    key = Key.new("02715")
+    offset = Offset.new(date)
+    shift = Shift.new(key, offset)
+    expect(@enigma_1.encrypted_letter("h", shift, 0)).to eq("k")
+  end
+
+  it 'can encrypt the word' do
+    date = "040895"
+    key = Key.new("02715")
+    offset = Offset.new(date)
+    shift = Shift.new(key, offset)
+    expect(@enigma_1.join_letters_together("hello world", shift)).to eq("keder ohulw")
+  end
 end
